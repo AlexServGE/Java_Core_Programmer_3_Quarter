@@ -1,0 +1,5 @@
+FROM bellsoft/liberica-openjdk-debian
+COPY . ./java
+RUN mkdir ./out
+RUN javac -sourcepath ./java -d out java/main/Main.java
+CMD java -classpath ./out main/Main
