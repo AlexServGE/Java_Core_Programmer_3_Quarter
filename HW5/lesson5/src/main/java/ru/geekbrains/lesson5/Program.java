@@ -1,6 +1,9 @@
 package ru.geekbrains.lesson5;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,7 +48,11 @@ public class Program {
             System.out.printf("Файл %s содержит искомое слово '%s'\n", s, TO_SEARCH);
         }
 
-
+        Path folderToBackup = Files.createDirectory(Paths.get("./HWfolder"));
+        Files.createFile(Paths.get(folderToBackup.toAbsolutePath().toString() + "/test1.txt"));
+        Files.createFile(Paths.get(folderToBackup.toAbsolutePath().toString() + "/test2.txt"));
+        Files.createFile(Paths.get(folderToBackup.toAbsolutePath().toString() + "/test3.txt"));
+        FilesBackupService.backupFilesInDir("./HWfolder");
     }
 
     /**
